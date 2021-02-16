@@ -1,0 +1,13 @@
+---
+- name: PLAY BOOTSTRAP
+  hosts: all
+  become: true
+  
+  tasks:
+    - name: Creation d'un user standad group sudo
+      ansible.builtin.user:
+      name: formation
+      state: present
+      shell: /bin/bash
+      groups: "{{ sudogrp }}"
+      
